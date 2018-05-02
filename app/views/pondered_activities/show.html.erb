@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @pondered_activity.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @pondered_activity.description %>
+</p>
+
+<p>
+  <strong>Init date:</strong>
+  <%= @pondered_activity.init_date %>
+</p>
+
+<p>
+  <strong>Pondered planner:</strong>
+  <%= @pondered_activity.pondered_planner %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @pondered_activity.subject %>
+</p>
+
+<%= link_to 'Edit', edit_pondered_activity_path(@pondered_activity) %> |
+<%= link_to 'Back', pondered_activities_path %>

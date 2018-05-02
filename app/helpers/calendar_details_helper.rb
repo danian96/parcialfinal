@@ -1,0 +1,2 @@
+module CalendarDetailsHelper
+end

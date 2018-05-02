@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-xs-12">
+      <div class="box">
+
+        <div class="box-header">
+          <h3 class="box-title">Tipo de Actividad</h3>
+        </div>
+
+        <div class="box-body">
+          <p id="notice"><%= notice %></p>
+
+          <p>
+            <strong>Nombre de la Actividad:</strong>
+            <%= @calendar_detail.name %>
+          </p>
+
+          <p>
+            <strong>Fecha de la Actividad:</strong>
+            <%= @calendar_detail.init_date %>
+          </p>
+
+          <p>
+            <strong>Descripcion:</strong>
+            <%= @calendar_detail.description %>
+          </p>
+
+          <p>
+            <strong>Tipo de Actividad:</strong>
+            <%= @calendar_detail.calendar_tag.name %>
+          </p>
+
+          <%= link_to 'Editar', edit_calendar_detail_path(@calendar_detail) %> |
+          <%= link_to 'Regresar', managements_path %>
+
+        </div>
+      </div>
+    </div>
+  </div>

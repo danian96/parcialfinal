@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @list_of_child.user %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @list_of_child.student %>
+</p>
+
+<%= link_to 'Edit', edit_list_of_child_path(@list_of_child) %> |
+<%= link_to 'Back', list_of_children_path %>

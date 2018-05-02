@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-xs-12">
+      <div class="box">
+
+        <div class="box-header">
+          <h3 class="box-title">Tipo de Actividad</h3>
+        </div>
+
+        <div class="box-body">
+          <p id="notice"><%= notice %></p>
+
+          <p>
+            <strong>Nombre:</strong>
+            <%= @calendar_tag.name %>
+          </p>
+
+          <%= link_to 'Editar', edit_calendar_tag_path(@calendar_tag) %> |
+          <%= link_to 'Regresar', managements_path %>
+        </div>
+      </div>
+    </div>
+  </div>

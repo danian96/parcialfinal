@@ -1,0 +1,37 @@
+<%= form_for(ponderation) do |f| %>
+  <% if ponderation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ponderation.errors.count, "error") %> prohibited this ponderation from being saved:</h2>
+
+      <ul>
+      <% ponderation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :value %>
+    <%= f.number_field :value %>
+  </div>
+
+  <div class="field">
+    <%= f.label :observation %>
+    <%= f.text_area :observation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :student_id %>
+    <%= f.text_field :student_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pondered_activity_id %>
+    <%= f.text_field :pondered_activity_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,22 @@
+<%= form_for(book_of_permission) do |f| %>
+  <% if book_of_permission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(book_of_permission.errors.count, "error") %> prohibited this book_of_permission from being saved:</h2>
+
+      <ul>
+      <% book_of_permission.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :student_id %>
+    <%= f.text_field :student_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

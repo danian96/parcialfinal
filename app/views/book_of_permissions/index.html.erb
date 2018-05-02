@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Book Of Permissions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @book_of_permissions.each do |book_of_permission| %>
+      <tr>
+        <td><%= book_of_permission.student %></td>
+        <td><%= link_to 'Show', book_of_permission %></td>
+        <td><%= link_to 'Edit', edit_book_of_permission_path(book_of_permission) %></td>
+        <td><%= link_to 'Destroy', book_of_permission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Book Of Permission', new_book_of_permission_path %>

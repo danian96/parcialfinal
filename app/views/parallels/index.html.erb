@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Parallels</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Grade</th>
+      <th>Teacher</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parallels.each do |parallel| %>
+      <tr>
+        <td><%= parallel.name %></td>
+        <td><%= parallel.grade %></td>
+        <td><%= parallel.user_id %></td>
+        <td><%= link_to 'Show', parallel %></td>
+        <td><%= link_to 'Edit', edit_parallel_path(parallel) %></td>
+        <td><%= link_to 'Destroy', parallel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Parallel', new_parallel_path %>

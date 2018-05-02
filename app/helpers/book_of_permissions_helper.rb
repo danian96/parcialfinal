@@ -1,0 +1,2 @@
+module BookOfPermissionsHelper
+end

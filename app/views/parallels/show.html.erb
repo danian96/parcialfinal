@@ -1,0 +1,112 @@
+<div class="row">
+  <div class="col-xs-12">
+      <div class="box">
+
+        <div class="box-header">
+          <h3 class="box-title">Paralelo</h3>
+        </div>
+
+        <div class="box-body">
+          <p id="notice"><%= notice %></p>
+
+          <p>
+            <strong>Nombre del Paralelo:</strong>
+            <%= @parallel.name %>
+          </p>
+
+          <p>
+            <strong>Curso:</strong>
+            <%= @parallel.grade.name %>
+          </p>
+
+          <p>
+            <strong>Profesor:</strong>
+            <%= @parallel.user.name %>
+          </p>
+
+          <%= link_to 'Edit', edit_parallel_path(@parallel) %> |
+          <%= link_to 'Back', parallels_path %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+
+          <div class="box-header">
+            <h3 class="box-title">Lista de Estudiantes</h3>
+          </div>
+
+          <div class="box-body">
+            <div id="students_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <h1>Estudiantes</h1>
+
+                  <table id="students_index" class="table table-bordered table-striped dataTable" role="grid">
+                    <thead>
+                      <tr>
+                        <th>Rude</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Agenda</th>
+                        <th>Licencias</th>
+                        <th class="col-xs-1">Acciones</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <% @students.each do |student| %>
+                        <tr>
+                          <td><%= Student.find_by(id: student.student_id).rude %></td>
+                          <td><%= Student.find_by(id: student.student_id).name %></td>
+                          <td><%= Student.find_by(id: student.student_id).last_name %></td>
+                          <td> <%= link_to 'Agenda' ,Planner.find_by(student_id: Student.find_by(id: student.student_id).id) %> </td>
+                          <td> <%= link_to 'Licencias' ,BookOfPermission.find_by(student_id: Student.find_by(id: student.student_id).id) %> </td>
+                          <td>
+                            <div class="btn-row">
+                              <%= link_to raw('<i class="fa fa-cogs"></i>'), edit_student_url(student), class: 'btn btn-sm btn-warning' %>
+                              <%= link_to raw('<i class="fa fa-cogs"></i>'), student_path(student.id), class: 'btn btn-sm btn-success' %>
+                              <%= link_to raw('<i class="fa fa-trash"></i>'), student_url(student), class: 'btn btn-sm btn-danger', method: :delete,
+                                              data: { confirm: 'Are you sure you want to delete this element?' } %>
+                            </div>
+                          </td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                    <tfoot>
+                      <tr role="row">
+                        <th>Rude</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th class="col-xs-1">Acciones</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+
+                  <br>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-2 col-md-offset-10">
+          <%= link_to 'Agregar nuevo estudiante', new_student_path, class: 'btn btn-success pull-right' %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2 col-md-offset-10">
+          <%= link_to 'Agregar agenda', new_planner_path, class: 'btn btn-success pull-right' %>
+        </div>
+      </div>
+    </div>
+
+  </div>

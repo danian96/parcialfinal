@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @planner_detail.name %>
+</p>
+
+<p>
+  <strong>Init date:</strong>
+  <%= @planner_detail.init_date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @planner_detail.description %>
+</p>
+
+<p>
+  <strong>Response:</strong>
+  <%= @planner_detail.response %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @planner_detail.status %>
+</p>
+
+<%= link_to 'Edit', edit_planner_detail_path(@planner_detail) %> |
+<%= link_to 'Back', planner_details_path %>

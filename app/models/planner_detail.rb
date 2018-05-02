@@ -1,0 +1,2 @@
+class PlannerDetail < ApplicationRecord
+end

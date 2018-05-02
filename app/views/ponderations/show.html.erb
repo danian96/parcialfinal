@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @ponderation.value %>
+</p>
+
+<p>
+  <strong>Observation:</strong>
+  <%= @ponderation.observation %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @ponderation.student %>
+</p>
+
+<p>
+  <strong>Pondered activity:</strong>
+  <%= @ponderation.pondered_activity %>
+</p>
+
+<%= link_to 'Edit', edit_ponderation_path(@ponderation) %> |
+<%= link_to 'Back', ponderations_path %>

@@ -1,0 +1,26 @@
+<div class="form-group">
+  <%= f.label :name, "Nombre:" %>
+  <%= f.text_field :name, class: "form-control", placeholder: "Introduzca el Nombre", required: true %>
+  <span class="help-block"><i>* El Campo es requerido</i><span>
+</div>
+
+  <div class="form-group">
+    <%= f.label :description, "Descripcion:" %>
+    <%= f.text_area :description, class: "form-control", placeholder: "Introduzca la Descripcion", required: true %>
+    <span class="help-block"><i>* El Campo es requerido</i><span>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :init_date %>
+    <%= f.date_select :init_date,{ :start_year => Date.current.year, :end_year => 1920 }, { :class => "form-control m-input" }%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :calendar_id, "Calendario" %>
+    <%= f.collection_select(:calendar_id, Calendar.all, :id, :name, {hide_label: true}, class: "form-control m-input m-input--air") %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :calendar_tag_id, "Tipo de Actividad" %>
+    <%= f.collection_select(:calendar_tag_id, CalendarTag.all, :id, :name, {hide_label: true}, class: "form-control m-input m-input--air") %>
+  </div>

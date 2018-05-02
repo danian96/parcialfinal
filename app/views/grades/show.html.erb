@@ -1,0 +1,94 @@
+<div class="row">
+  <div class="col-xs-12">
+      <div class="box">
+
+        <div class="box-header">
+          <h3 class="box-title">Curso</h3>
+        </div>
+
+        <div class="box-body">
+          <p id="notice"><%= notice %></p>
+
+          <p>
+            <strong>Name:</strong>
+            <%= @grade.name %>
+          </p>
+
+          <p>
+            <strong>Management:</strong>
+            <%= @grade.management.name %>
+          </p>
+
+          <%= link_to 'Edit', edit_parallel_path(@grade) %> |
+          <%= link_to 'Back', managements_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+
+          <div class="box-header">
+            <h3 class="box-title">Lista de Paralelos del Curso</h3>
+          </div>
+
+          <div class="box-body">
+            <div id="parallels_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <h1>Paralelos</h1>
+
+                  <table id="parallels_index" class="table table-bordered table-striped dataTable" role="grid">
+                    <thead>
+                      <tr>
+                        <th>Nombre</th>
+                        <th>Planificacion</th>
+                        <th class="col-xs-1">Acciones</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <% @parallels.each do |parallel| %>
+                        <tr>
+                          <td><%= parallel.name %></td>
+                          <td><%= link_to 'Planificacion', (Schedule.find_by(parallel_id: parallel.id))%></td>
+                          <td>
+                            <div class="btn-row">
+                              <%= link_to raw('<i class="fa fa-cogs"></i>'), edit_parallel_url(parallel), class: 'btn btn-sm btn-warning' %>
+                              <%= link_to raw('<i class="fa fa-cogs"></i>'), parallel_path(parallel.id), class: 'btn btn-sm btn-success' %>
+                              <%= link_to raw('<i class="fa fa-trash"></i>'), parallel_url(parallel), class: 'btn btn-sm btn-danger', method: :delete,
+                                              data: { confirm: 'Are you sure you want to delete this element?' } %>
+                            </div>
+                          </td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                    <tfoot>
+                      <tr role="row">
+                        <th>Nombre</th>
+                        <th class="col-xs-1">Acciones</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                  <br>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2 col-md-offset-10">
+          <%= link_to 'Agregar nuevo Paralelo', new_parallel_path, class: 'btn btn-success pull-right' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2 col-md-offset-10">
+          <%= link_to 'Nueva planificacion de paralelo ', new_schedule_path, class: 'btn btn-success pull-right' %>
+        </div>
+      </div>
+    </div>
+
+  </div>

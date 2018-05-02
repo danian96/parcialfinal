@@ -1,0 +1,27 @@
+<%= form_for(pondered_planner) do |f| %>
+  <% if pondered_planner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pondered_planner.errors.count, "error") %> prohibited this pondered_planner from being saved:</h2>
+
+      <ul>
+      <% pondered_planner.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :parallel_id %>
+    <%= f.text_field :parallel_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

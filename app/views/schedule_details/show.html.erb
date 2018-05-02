@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @schedule_detail.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @schedule_detail.description %>
+</p>
+
+<p>
+  <strong>Init date:</strong>
+  <%= @schedule_detail.init_date %>
+</p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @schedule_detail.tag %>
+</p>
+
+<p>
+  <strong>Schedule:</strong>
+  <%= @schedule_detail.schedule %>
+</p>
+
+<%= link_to 'Edit', edit_schedule_detail_path(@schedule_detail) %> |
+<%= link_to 'Back', schedule_details_path %>

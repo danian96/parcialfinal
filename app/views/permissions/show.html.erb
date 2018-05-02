@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @permission.reason %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @permission.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @permission.status %>
+</p>
+
+<p>
+  <strong>Init date:</strong>
+  <%= @permission.init_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @permission.end_date %>
+</p>
+
+<%= link_to 'Edit', edit_permission_path(@permission) %> |
+<%= link_to 'Back', permissions_path %>

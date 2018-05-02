@@ -1,0 +1,104 @@
+
+
+<div class="row">
+  <div class="col-xs-12">
+      <div class="box">
+
+        <div class="box-header">
+          <h3 class="box-title">Agenda Escolar</h3>
+        </div>
+
+        <div class="box-body">
+          <p id="notice"><%= notice %></p>
+
+          <p>
+            <strong>Name:</strong>
+            <%= @schedule.name %>
+          </p>
+
+          <p>
+            <strong>Parallel:</strong>
+            <%= @schedule.parallel.name %>
+          </p>
+
+          <%= link_to 'Edit', edit_schedule_path(@schedule) %> |
+          <%= link_to 'Back', schedules_path %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<div class="row">
+  <div class="col-xs-12">
+      <div class="box">
+
+        <div class="box-header">
+          <h3 class="box-title">Lista de Actividades del Calendario Escolar</h3>
+        </div>
+
+        <div class="box-body">
+          <div id="schedule_details_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+
+            <div class="row">
+              <div class="col-sm-12">
+                <h1>Actividades</h1>
+
+                <table id="schedule_details_index" class="table table-bordered table-striped dataTable" role="grid">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Fecha de Inicio</th>
+                      <th>Descripcion</th>
+                      <th class="col-xs-1">Acciones</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <% @schedule_details.each do |schedule_detail| %>
+                      <tr>
+                        <td><%= schedule_detail.name %></td>
+                        <td><%= schedule_detail.init_date %></td>
+                        <td><%= schedule_detail.description %></td>
+                        <td>
+                          <div class="btn-row">
+                            <%= link_to raw('<i class="fa fa-cogs"></i>'), edit_schedule_detail_url(schedule_detail), class: 'btn btn-sm btn-warning' %>
+                            <%= link_to raw('<i class="fa fa-cogs"></i>'), schedule_detail_path(schedule_detail.id), class: 'btn btn-sm btn-success' %>
+                            <%= link_to raw('<i class="fa fa-trash"></i>'), schedule_detail_url(schedule_detail), class: 'btn btn-sm btn-danger', method: :delete,
+                                            data: { confirm: 'Are you sure you want to delete this element?' } %>
+                          </div>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                  <tfoot>
+                    <tr role="row">
+                      <th>Nombre</th>
+                      <th>Fecha de Inicio</th>
+                      <th>Descripcion</th>
+                      <th class="col-xs-1">Acciones</th>
+                    </tr>
+                  </tfoot>
+                </table>
+
+                <br>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-2 col-md-offset-10">
+        <%= link_to 'Agregar nueva Actividad al Calendario Escolar', new_schedule_detail_path, class: 'btn btn-success pull-right' %>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<br>

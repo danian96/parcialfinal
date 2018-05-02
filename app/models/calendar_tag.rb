@@ -1,0 +1,2 @@
+class CalendarTag < ApplicationRecord
+end

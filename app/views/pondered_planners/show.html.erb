@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @pondered_planner.name %>
+</p>
+
+<p>
+  <strong>Parallel:</strong>
+  <%= @pondered_planner.parallel %>
+</p>
+
+<%= link_to 'Edit', edit_pondered_planner_path(@pondered_planner) %> |
+<%= link_to 'Back', pondered_planners_path %>

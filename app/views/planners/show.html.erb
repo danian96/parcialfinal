@@ -1,0 +1,103 @@
+
+
+<div class="row">
+  <div class="col-xs-12">
+      <div class="box">
+
+        <div class="box-header">
+          <h3 class="box-title">Agenda Escolar</h3>
+        </div>
+
+        <div class="box-body">
+          <p id="notice"><%= notice %></p>
+
+          <p>
+            <strong>Name:</strong>
+            <%= @planner.name %>
+          </p>
+
+          <p>
+            <strong>Student:</strong>
+            <%= @planner.student %>
+          </p>
+
+          <%= link_to 'Edit', edit_planner_path(@planner) %> |
+          <%= link_to 'Back', planners_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<div class="row">
+  <div class="col-xs-12">
+      <div class="box">
+
+        <div class="box-header">
+          <h3 class="box-title">Lista de Actividades del Calendario Escolar</h3>
+        </div>
+
+        <div class="box-body">
+          <div id="planner_details_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+
+            <div class="row">
+              <div class="col-sm-12">
+                <h1>Actividades</h1>
+
+                <table id="planner_details_index" class="table table-bordered table-striped dataTable" role="grid">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Fecha de Inicio</th>
+                      <th>Descripcion</th>
+                      <th class="col-xs-1">Acciones</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <% @planner_details.each do |planner_detail| %>
+                      <tr>
+                        <td><%= planner_detail.name %></td>
+                        <td><%= planner_detail.init_date %></td>
+                        <td><%= planner_detail.description %></td>
+                        <td>
+                          <div class="btn-row">
+                            <%= link_to raw('<i class="fa fa-cogs"></i>'), edit_planner_detail_url(planner_detail), class: 'btn btn-sm btn-warning' %>
+                            <%= link_to raw('<i class="fa fa-cogs"></i>'), planner_detail_path(planner_detail.id), class: 'btn btn-sm btn-success' %>
+                            <%= link_to raw('<i class="fa fa-trash"></i>'), planner_detail_url(planner_detail), class: 'btn btn-sm btn-danger', method: :delete,
+                                            data: { confirm: 'Are you sure you want to delete this element?' } %>
+                          </div>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                  <tfoot>
+                    <tr role="row">
+                      <th>Nombre</th>
+                      <th>Fecha de Inicio</th>
+                      <th>Descripcion</th>
+                      <th class="col-xs-1">Acciones</th>
+                    </tr>
+                  </tfoot>
+                </table>
+
+                <br>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-2 col-md-offset-10">
+        <%= link_to 'Agregar nueva Actividad al Calendario Escolar', new_planner_detail_path, class: 'btn btn-success pull-right' %>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<br>
